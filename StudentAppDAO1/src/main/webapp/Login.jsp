@@ -11,30 +11,68 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<style>
+	
+	body {
+    background-image: url('https://i1.wp.com/azmind.com/demo/bootstrap-registration-forms/form-2/assets/img/backgrounds/2.jpg'); /* Change the path if needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #E0F7FA; 
+}
+	
 
-		.one{
-			width: 400px;
-			height: 400px;
-			box-shadow: 0px 0px  10px black;
-			margin: 200px auto;
-			padding: 10px;
-			text-align: center;
-			border-radius: 10px;
+.one {
+    width: 400px;
+    height: auto; 
+    min-height: 400px; 
+    box-shadow: 0px 0px 10px black;
+    margin: 100px auto; 
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.6); 
+    overflow: hidden; 
+}
 
-		}
-		.two{
-			margin: 30px auto;
-			font-size: 20px;
-		}
-		h1 {
+		.two {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-container i {
+    margin-right: 10px;
+    color: white;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+}
+
+h1 {
     margin: 0px;
     font-family: "Dancing Script", serif;
     font-optical-sizing: auto;
-    font-weight: 400; /* Corrected */
+    font-weight: 400;
     font-style: normal;
     font-size: 80px;
-    color: purple;
+    color: #E0F7FA; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
 }
+
 h1
 {
    text-align:center;
@@ -54,20 +92,7 @@ margin: 40px auto;
  
 }
 
-input[type="text"]
-{
-       border-left-style: none;
-       border-top-style: none;
-       border-right-style: none;
-       outline:none;
-}
-input[type="password"]
-{
-       border-left-style: none;
-       border-top-style: none;
-       border-right-style: none;
-       outline:none;
-}
+
 
 .login-btn {
   color:whitesmoke;
@@ -93,6 +118,7 @@ input[type="password"]
 a
 {
  text-decoration:none;
+ color: #E0F7FA; 
 }
 
 		.three{
@@ -113,7 +139,7 @@ a
 <form action="login" method="POST">
 	<div class="one">
 	<h1>Login now</h1>
-	
+	<br>
 	<%String successMsg = (String)request.getAttribute("success"); 
   if(successMsg!=null){%>
   <h1 class="success"><%=successMsg%></h1>
@@ -140,10 +166,16 @@ a
   <%}%>
   
 <div class="two">
-	<i class="fa-duotone fa-solid fa-envelope"></i><input type="text" class="three" name="mail" placeholder="Enter Email" required="required">
-	<br><br>
-	<i class="fa-solid fa-unlock-keyhole"></i><input type="password" class="four" name="password" placeholder="Enter Password" required="required">
-	<br><br>
+<div class="input-container">
+    <i class="fa-solid fa-envelope"></i>
+    <input type="text" name="mail" placeholder="Enter Email" required>
+</div>
+
+<div class="input-container">
+    <i class="fa-solid fa-unlock-keyhole"></i>
+    <input type="password" name="password" placeholder="Enter Password" required>
+</div>
+
 	<button class="login-btn">Login</button>
 </div>
 	<p><a href="forgotPassword.jsp">forgot password?</a></p>
